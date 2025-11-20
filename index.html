@@ -64,18 +64,31 @@
     </section>
 
     <!-- アクセス -->
-    <section class="section" id="access">
-      <h2>Access</h2>
-      <p>最寄り駅：仙台市営地下鉄南北線勾当台公園駅 徒歩5分</p>
-      <!-- Googleマップ埋め込みをここに貼る -->
-      <div class="map-wrap">
-        <iframe
-          src="https://www.google.co.jp/maps/place/%E3%80%92980-0803+%E5%AE%AE%E5%9F%8E%E7%9C%8C%E4%BB%99%E5%8F%B0%E5%B8%82%E9%9D%92%E8%91%89%E5%8C%BA%E5%9B%BD%E5%88%86%E7%94%BA%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%95%E2%88%92%EF%BC%91%EF%BC%96+%E5%9B%BD%E5%88%86%E7%94%BA%EF%BC%AE%EF%BC%A5%E3%83%93%E3%83%AB/@38.2655166,140.8670426,17z/data=!3m1!4b1!4m6!3m5!1s0x5f8a282ff0a48799:0x5c9e0beeb815c89e!8m2!3d38.2655166!4d140.8696175!16s%2Fg%2F11g6ypyqxb?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-    </section>
+   <div class="map-container">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3132.60282990028!2d140.8670425748909!3d38.26551657186583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a282ff0a48799%3A0x5c9e0beeb815c89e!2z44CSOTgwLTA4MDMg5a6u5Z-O55yM5LuZ5Y-w5biC6Z2S6JGJ5Yy65Zu95YiG55S677yS5LiB55uu77yR77yV4oiS77yR77yWIOWbveWIhueUuu-8ru-8peODk-ODqw!5e0!3m2!1sja!2sjp!4v1763653900075!5m2!1sja!2sjp"
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+<style>
+  .map-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 60%; /* 高さ比率（55〜70%で調整可能） */
+    margin: 32px auto;
+  }
+  .map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
 
     <!-- SNS -->
     <section class="section" id="sns">

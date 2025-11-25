@@ -27,6 +27,35 @@ body {
   margin: 0 auto;
 }
 
+/* Hero 部分のロゴ背景 */
+.hero {
+  position: relative;
+  background: #000;
+}
+
+/* ロゴ背景 */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;              /* ロゴの大きさ（調整可） */
+  height: 600px;
+  background-image: url("logo-herpath.png"); /* ← ここをファイル名に合わせる */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translate(-50%, -50%);
+  opacity: 0.08;             /* 透かし具合（0.05〜0.15で調整） */
+  pointer-events: none;      /* クリック妨害しない */
+}
+
+/* Hero 内の文字がロゴより前に来るように */
+.hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
 .logo {
   font-size: 2.4rem;
   letter-spacing: 0.15em;

@@ -28,11 +28,11 @@ body {
 }
 
 /* ============================
-   HERO 背景ロゴ（HERPATH 最適版）
+   HERO 背景ロゴ（カラーそのまま版）
    ============================ */
 .hero {
   position: relative;
-  min-height: 60vh;
+  min-height: 70vh;         /* 下のセクションにロゴが被らないよう余裕を持たせる */
   background: #000;
   display: flex;
   align-items: center;
@@ -41,48 +41,37 @@ body {
   overflow: hidden;
 }
 
-/* 背景ロゴ（PC大きめ / スマホは縮小） */
+/* カラーそのままのロゴ背景 */
 .hero::before {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 45%;                 /* 少し上寄りにして Concept に出ないようにする */
   left: 50%;
-  width: 650px;          /* PC 用サイズ */
-  height: 650px;
-  background-image: url("logo-herpath.png"); /* ← GitHub に置いたファイル名 */
+  width: 520px;             /* PC でのロゴサイズ（大きすぎたらここを小さく） */
+  height: 520px;
+  background-image: url("logo-herpath.png"); /* ファイル名はこれに合わせてね */
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
-
   transform: translate(-50%, -50%);
-  opacity: 0.085;        /* ブランド感が出る絶妙な濃度 */
+  opacity: 0.8;             /* 色はそのまま＋少しだけ透かす。強くしたければ 0.9〜1.0 に */
   pointer-events: none;
   z-index: 1;
 }
 
-/* Hero の文字が前面に来る */
+/* Hero 内の文字は前面に */
 .hero-inner {
   position: relative;
   z-index: 2;
 }
 
-/* ----------------------------
-   スマホ最適化（ロゴ縮小）
-   ---------------------------- */
+/* スマホ最適化（ロゴ縮小＆位置調整） */
 @media (max-width: 600px) {
   .hero::before {
-    width: 380px;     /* スマホでは少し小さめ */
-    height: 380px;
-    opacity: 0.1;     /* スマホは背景が暗く見えやすいので少し濃く */
-  }
-}
-
-/* iPhone SE / 5 など最小サイズ */
-@media (max-width: 360px) {
-  .hero::before {
-    width: 300px;
-    height: 300px;
-    opacity: 0.12;
+    width: 320px;
+    height: 320px;
+    top: 48%;
+    opacity: 0.9;          /* スマホは少し濃いめにしてもバランス良い */
   }
 }
 

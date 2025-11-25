@@ -27,12 +27,10 @@ body {
   margin: 0 auto;
 }
 
-/* ============================
-   HERO 背景ロゴ（カラーそのまま版）
-   ============================ */
+/* HERO 背景ロゴ（透過版対応・最終完成形） */
 .hero {
   position: relative;
-  min-height: 70vh;         /* 下のセクションにロゴが被らないよう余裕を持たせる */
+  min-height: 70vh;
   background: #000;
   display: flex;
   align-items: center;
@@ -41,40 +39,36 @@ body {
   overflow: hidden;
 }
 
-/* カラーそのままのロゴ背景 */
 .hero::before {
   content: "";
   position: absolute;
-  top: 45%;
+  top: 48%;
   left: 50%;
   width: 520px;
   height: 520px;
-  background-image: url("logo-herpath.png");
+  background-image: url("logo-herpath-transparent.png"); /* ←これに変更 */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   transform: translate(-50%, -50%);
 
-  opacity: 1;                 /* 色はそのまま */
-  filter: brightness(0.55);   /* 背景だけ暗くして白文字を読みやすくする */
-
+  opacity: 0.20;               /* 透かし具合：色つきロゴでも綺麗に浮かぶ */
   pointer-events: none;
   z-index: 1;
 }
 
-/* Hero 内の文字は前面に */
 .hero-inner {
   position: relative;
   z-index: 2;
 }
 
-/* スマホ最適化（ロゴ縮小＆位置調整） */
+/* スマホ最適化 */
 @media (max-width: 600px) {
   .hero::before {
-    width: 320px;
-    height: 320px;
-    top: 48%;
-    opacity: 0.9;          /* スマホは少し濃いめにしてもバランス良い */
+    width: 330px;
+    height: 330px;
+    top: 52%;
+    opacity: 0.28;
   }
 }
 

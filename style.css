@@ -45,16 +45,19 @@ body {
 .hero::before {
   content: "";
   position: absolute;
-  top: 45%;                 /* 少し上寄りにして Concept に出ないようにする */
+  top: 45%;
   left: 50%;
-  width: 520px;             /* PC でのロゴサイズ（大きすぎたらここを小さく） */
+  width: 520px;
   height: 520px;
-  background-image: url("logo-herpath.png"); /* ファイル名はこれに合わせてね */
+  background-image: url("logo-herpath.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   transform: translate(-50%, -50%);
-  opacity: 0.8;             /* 色はそのまま＋少しだけ透かす。強くしたければ 0.9〜1.0 に */
+
+  opacity: 1;                 /* 色はそのまま */
+  filter: brightness(0.55);   /* 背景だけ暗くして白文字を読みやすくする */
+
   pointer-events: none;
   z-index: 1;
 }

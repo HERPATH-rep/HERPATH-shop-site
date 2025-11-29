@@ -41,20 +41,22 @@ body {
   overflow: hidden;
 }
 
-/* ロゴ（しっかり見える濃さ） */
 .hero::before {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 45%;                      /* ロゴ位置：少し上 */
   left: 50%;
-  width: 520px;
+  width: 520px;                  /* ロゴの大きさ */
   height: 520px;
-  background-image: url("logo-herpath-transparent.png"); /* 透過ロゴ */
+  background-image: url("logo-herpath.png");  /* ←元の背景つきロゴ */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   transform: translate(-50%, -50%);
-  opacity: 0.9;                 /* ← ほぼそのままの色で出す */
+
+  opacity: 1;                    /* 色はそのまま */
+  filter: brightness(0.55);      /* ← 背景を暗くして白文字を読めるようにする（これが鍵） */
+
   pointer-events: none;
   z-index: 1;
 }

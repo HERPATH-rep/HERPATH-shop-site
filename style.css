@@ -55,7 +55,7 @@ body {
   transform: translate(-50%, -50%);
 
   opacity: 1;                    /* 色はそのまま */
-  filter: brightness(0.55);      /* ← 背景を暗くして白文字を読めるようにする（これが鍵） */
+  filter: brightness(0.70);      /* ← 背景を暗くして白文字を読めるようにする（これが鍵） */
 
   pointer-events: none;
   z-index: 1;

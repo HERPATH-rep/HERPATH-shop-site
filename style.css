@@ -11,34 +11,27 @@ body {
   color: #f5f5f5;
 }
 
-/* ヒーロー */
+/* HERO */
 .hero {
   position: relative;
-  min-height: 70vh;
+  min-height: 55vh;   /* ← 70vh は大きすぎるので Safari ではここまで縮める */
   background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;   /* ← Safari のバグ対策：hidden をやめる */
   padding: 40px 20px;
 }
 
-.hero-inner {
-  max-width: 720px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 3;
-}
-
-/* ロゴ背景 */
+/* ロゴ背景画像 */
 .hero::before {
   content: "";
   position: absolute;
-  top: 45%;
+  top: 48%;
   left: 50%;
-  width: 520px;
-  height: 520px;
+  width: 420px;      /* ← Safari の負荷軽減のため縮小 */
+  height: 420px;
   background-image: url("logo-herpath.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -50,18 +43,27 @@ body {
   z-index: 1;
 }
 
-/* 文字可読性を上げるレイヤー */
+/* 可読性レイヤー */
 .hero::after {
   content: "";
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;           /* ← inset:0 は Safari が苦手なので明示 */
   background: radial-gradient(
     circle at center,
-    rgba(0, 0, 0, 0.65) 0%,
-    rgba(0, 0, 0, 0.0) 60%
+    rgba(0,0,0,0.65) 0%,
+    rgba(0,0,0,0.0) 60%
   );
   pointer-events: none;
   z-index: 2;
+}
+
+/* Hero 内の文字は最前面 */
+.hero-inner {
+  position: relative;
+  z-index: 3;
 }
 
 .logo {

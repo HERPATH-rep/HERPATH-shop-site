@@ -13,24 +13,6 @@ body {
 
 /* ヒーロー */
 .hero {
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px 20px;
-  background: #000;
-}
-
-.hero-inner {
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-/* ============================
-   HERO + ロゴ + テキスト可読性
-   ============================ */
-.hero {
   position: relative;
   min-height: 70vh;
   background: #000;
@@ -39,49 +21,49 @@ body {
   justify-content: center;
   text-align: center;
   overflow: hidden;
+  padding: 40px 20px;
 }
 
+.hero-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 3;
+}
+
+/* ロゴ背景 */
 .hero::before {
   content: "";
   position: absolute;
-  top: 45%;                      /* ロゴ位置：少し上 */
+  top: 45%;
   left: 50%;
-  width: 520px;                  /* ロゴの大きさ */
+  width: 520px;
   height: 520px;
-  background-image: url("logo-herpath.png");  /* ←元の背景つきロゴ */
+  background-image: url("logo-herpath.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   transform: translate(-50%, -50%);
-
-  opacity: 1;                    /* 色はそのまま */
-  filter: brightness(0.70);      /* ← 背景を暗くして白文字を読めるようにする（これが鍵） */
-
+  opacity: 1;
+  filter: brightness(0.70);
   pointer-events: none;
   z-index: 1;
 }
 
-/* テキストの後ろだけを暗くするレイヤー */
+/* 文字可読性を上げるレイヤー */
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
   background: radial-gradient(
     circle at center,
-    rgba(0, 0, 0, 0.65) 0%,     /* 真ん中だけ暗くして文字を読みやすく */
+    rgba(0, 0, 0, 0.65) 0%,
     rgba(0, 0, 0, 0.0) 60%
   );
   pointer-events: none;
   z-index: 2;
 }
 
-/* テキストは最前面 */
-.hero-inner {
-  position: relative;
-  z-index: 3;
-}
-
-/* 見出しとタグラインの視認性アップ */
 .logo {
   font-size: 2.4rem;
   letter-spacing: 0.15em;
@@ -95,7 +77,7 @@ body {
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
 }
 
-/* スマホ時：ロゴ少し小さく */
+/* スマホ時のロゴサイズ調整 */
 @media (max-width: 600px) {
   .hero::before {
     width: 340px;
@@ -154,17 +136,17 @@ body {
   }
 }
 
-/* ---- HERPATH / REBEL スタイルのミニマル地図 ---- */
+/* 地図 */
 .map-container {
   position: relative;
   width: 100%;
-  max-width: 420px;        /* 地図の横幅（ブランド的に小さめで上品） */
-  height: 240px;           /* カード式の高さ */
-  margin: 28px auto;       /* セクションとの間を整える */
-  border-radius: 10px;     /* 少し丸み、現代的 */
+  max-width: 420px;
+  height: 240px;
+  margin: 28px auto;
+  border-radius: 10px;
   overflow: hidden;
-  border: 1px solid #333;  /* 黒背景でもわかる上品な枠線 */
-  box-shadow: 0 0 12px rgba(0,0,0,0.5); /* ほのかな影で存在感 */
+  border: 1px solid #333;
+  box-shadow: 0 0 12px rgba(0,0,0,0.5);
 }
 
 .map-container iframe {
@@ -174,40 +156,15 @@ body {
   width: 100%;
   height: 100%;
   border: 0;
-  filter: grayscale(30%) contrast(1.05);  
+  filter: grayscale(30%) contrast(1.05);
   transition: filter 0.3s ease;
 }
 
 .map-container iframe:hover {
-  filter: grayscale(0%) contrast(1.15);  
+  filter: grayscale(0%) contrast(1.15);
 }
 
 /* SNS */
-.sns-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sns-list li {
-  margin-bottom: 8px;
-}
-
-.sns-list a {
-  color: #f5f5f5;
-  text-decoration: underline;
-}
-
-/* フッター */
-.footer {
-  padding: 20px;
-  text-align: center;
-  font-size: 0.8rem;
-  border-top: 1px solid #333;
-  margin-top: 40px;
-}
-
-/* 各種SNSリンクをスマホでも確実に見えるように強制 */
 .sns-list {
   list-style: none;
   padding: 0;
@@ -220,7 +177,16 @@ body {
 
 .sns-list a {
   display: block;
-  color: #f5f5f5 !important;  /* 背景とコントラストを強制 */
+  color: #f5f5f5 !important;
   font-size: 1rem;
   text-decoration: underline;
+}
+
+/* フッター */
+.footer {
+  padding: 20px;
+  text-align: center;
+  font-size: 0.8rem;
+  border-top: 1px solid #333;
+  margin-top: 40px;
 }

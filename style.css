@@ -11,45 +11,48 @@ body {
   color: #f5f5f5;
 }
 
-/* HERO */
+/* ============================
+      HERO（ロゴ + タイトル）
+   ============================ */
 .hero {
   position: relative;
-  min-height: 55vh;   /* ← 70vh は大きすぎるので Safari ではここまで縮める */
+  min-height: 65vh;        /* ← 枠ズレ完全解消の高さ */
   background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  overflow: visible;   /* ← Safari のバグ対策：hidden をやめる */
-  padding: 40px 20px;
+  overflow: visible;        /* ← Safari の表示バグ対策 */
+  padding: 50px 20px 40px;  /* 上に少し余裕を足して中央寄せ */
 }
 
+/* ロゴ背景画像（大枠のカード） */
 .hero::before {
   content: "";
   position: absolute;
-  top: 48%;                /* 50% → 48% にして少しだけ上に */
+  top: 47%;                /* ← ロゴを少し上へ */
   left: 50%;
-  width: 430px;            /* 460px → 430px にして一回り小さく */
-  height: 430px;
+  width: 410px;            /* ← 一回り小さくして境界から離す */
+  height: 410px;
   background-image: url("logo-herpath.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   transform: translate(-50%, -50%);
   opacity: 1;
-  filter: brightness(0.70);
+  filter: brightness(0.70); /* ← 白文字の可読性を保つ */
   pointer-events: none;
   z-index: 1;
 }
 
-/* 可読性レイヤー */
+/* 文字可読性を上げるレイヤー */
 .hero::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;           /* ← inset:0 は Safari が苦手なので明示 */
+  bottom: 0;
   background: radial-gradient(
     circle at center,
     rgba(0,0,0,0.65) 0%,
@@ -81,12 +84,14 @@ body {
 /* スマホ時のロゴサイズ調整 */
 @media (max-width: 600px) {
   .hero::before {
-    width: 340px;
-    height: 340px;
+    width: 320px;
+    height: 320px;
   }
 }
 
-/* ボタン */
+/* ============================
+      ボタン
+   ============================ */
 .btn-main,
 .btn-sub {
   display: inline-block;
@@ -106,7 +111,9 @@ body {
   color: #f5f5f5;
 }
 
-/* セクション */
+/* ============================
+      セクション共通
+   ============================ */
 .section {
   padding: 40px 20px;
   max-width: 960px;
@@ -137,7 +144,9 @@ body {
   }
 }
 
-/* 地図 */
+/* ============================
+      地図（Access セクション）
+   ============================ */
 .map-container {
   position: relative;
   width: 100%;
@@ -165,7 +174,9 @@ body {
   filter: grayscale(0%) contrast(1.15);
 }
 
-/* SNS */
+/* ============================
+      SNS リンク
+   ============================ */
 .sns-list {
   list-style: none;
   padding: 0;
@@ -183,7 +194,9 @@ body {
   text-decoration: underline;
 }
 
-/* フッター */
+/* ============================
+      フッター
+   ============================ */
 .footer {
   padding: 20px;
   text-align: center;

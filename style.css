@@ -24,14 +24,13 @@ body {
   padding: 40px 20px;
 }
 
-/* ロゴ背景画像 */
 .hero::before {
   content: "";
   position: absolute;
-  top: 48%;
+  top: 48%;                /* 50% → 48% にして少しだけ上に */
   left: 50%;
-  width: 420px;      /* ← Safari の負荷軽減のため縮小 */
-  height: 420px;
+  width: 430px;            /* 460px → 430px にして一回り小さく */
+  height: 430px;
   background-image: url("logo-herpath.png");
   background-size: contain;
   background-repeat: no-repeat;

@@ -1,4 +1,6 @@
-/* 全体 */
+/* ============================
+   全体
+   ============================ */
 * {
   box-sizing: border-box;
 }
@@ -12,27 +14,27 @@ body {
 }
 
 /* ============================
-      HERO（ロゴ + タイトル）
+   HERO（ロゴ + タイトル）
    ============================ */
 .hero {
   position: relative;
-  min-height: 65vh;        /* ← 枠ズレ完全解消の高さ */
+  min-height: 65vh;             /* 枠が出ない＋バランス良い高さ */
   background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  overflow: visible;        /* ← Safari の表示バグ対策 */
-  padding: 50px 20px 40px;  /* 上に少し余裕を足して中央寄せ */
+  overflow: visible;            /* Safari対策 */
+  padding: 50px 20px 40px;
 }
 
-/* ロゴ背景画像（大枠のカード） */
+/* ロゴ背景カード */
 .hero::before {
   content: "";
   position: absolute;
-  top: 47%;                /* ← ロゴを少し上へ */
+  top: 47%;                     /* 少し上に寄せる */
   left: 50%;
-  width: 410px;            /* ← 一回り小さくして境界から離す */
+  width: 410px;
   height: 410px;
   background-image: url("logo-herpath.png");
   background-size: contain;
@@ -40,12 +42,12 @@ body {
   background-position: center;
   transform: translate(-50%, -50%);
   opacity: 1;
-  filter: brightness(0.70); /* ← 白文字の可読性を保つ */
+  filter: brightness(0.70);     /* 背景だけ少し暗くして文字を読みやすく */
   pointer-events: none;
   z-index: 1;
 }
 
-/* 文字可読性を上げるレイヤー */
+/* 文字可読性アップ用レイヤー */
 .hero::after {
   content: "";
   position: absolute;
@@ -62,7 +64,7 @@ body {
   z-index: 2;
 }
 
-/* Hero 内の文字は最前面 */
+/* Hero 内の文字は最前面に */
 .hero-inner {
   position: relative;
   z-index: 3;
@@ -81,7 +83,7 @@ body {
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
 }
 
-/* スマホ時のロゴサイズ調整 */
+/* スマホ：ロゴ少し小さめに */
 @media (max-width: 600px) {
   .hero::before {
     width: 320px;
@@ -90,7 +92,7 @@ body {
 }
 
 /* ============================
-      ボタン
+   ボタン
    ============================ */
 .btn-main,
 .btn-sub {
@@ -112,7 +114,7 @@ body {
 }
 
 /* ============================
-      セクション共通
+   セクション共通
    ============================ */
 .section {
   padding: 40px 20px;
@@ -145,7 +147,7 @@ body {
 }
 
 /* ============================
-      地図（Access セクション）
+   地図（Access）
    ============================ */
 .map-container {
   position: relative;
@@ -174,17 +176,36 @@ body {
   filter: grayscale(0%) contrast(1.15);
 }
 
-/* SNS */
-.sns-links a {
-  display: inline-block;
-  color: #f5f5f5;
+/* ============================
+   SNS（各種SNSセクション）
+   ============================ */
+.sns-list {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+}
+
+.sns-list li {
+  margin-bottom: 12px;
+}
+
+.sns-list a,
+.sns-list a:visited {
+  display: block;
+  color: #ffffff !important;      /* Safariでも確実に白 */
+  font-size: 1.2rem;              /* 少し大きめで見やすく */
+  font-weight: 500;
+  text-decoration: none;
+  padding: 4px 0;
+}
+
+/* PCでカーソルを置いたときだけ下線 */
+.sns-list a:hover {
   text-decoration: underline;
-  font-size: 1rem;
-  margin-bottom: 8px;
 }
 
 /* ============================
-      フッター
+   フッター
    ============================ */
 .footer {
   padding: 20px;
@@ -192,41 +213,4 @@ body {
   font-size: 0.8rem;
   border-top: 1px solid #333;
   margin-top: 40px;
-}
-
-/* フッター内 SNS リンク（スマホ用） */
-.footer-sns {
-  margin-top: 16px;
-  display: none; /* デフォルトは非表示（PCでは出さない） */
-}
-
-.footer-sns-title {
-  font-size: 0.95rem;
-  margin-bottom: 4px;
-  border-bottom: 1px solid #444;
-  display: inline-block;
-  padding-bottom: 2px;
-}
-
-.footer-sns ul {
-  list-style: none;
-  padding: 0;
-  margin: 8px 0 0;
-}
-
-.footer-sns li {
-  margin-bottom: 6px;
-}
-
-.footer-sns a {
-  color: #f5f5f5;
-  text-decoration: underline;
-  font-size: 0.9rem;
-}
-
-/* 画面幅600px以下（スマホ）のときだけフッターSNSを表示 */
-@media (max-width: 600px) {
-  .footer-sns {
-    display: block;
-  }
 }
